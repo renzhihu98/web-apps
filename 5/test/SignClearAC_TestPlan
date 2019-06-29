@@ -1,0 +1,22 @@
+//This file describes the test plan for clear, AC, and Sign.
+//Created and edited 3/21/19 by Anna Yu: created all test plans
+
+Clear tests:
+- Whenever the on screen number isn't 0 the button is C.
+- Pressing clear after 3 then +, after clear then 1 then = will display screen as 4.
+- Pressing clear after screen displays -0 will display screen as 0 and button as AC.
+- Pressing sin when screen had 0 will display 1 and button as C.
+
+AC tests:
+- Whenever the on screen number is only 0, the button is AC.
+- 3 => + => clear => AC => + => 1 => = will show 1 as the answer.
+- 3 => + => clear => -3 => = will show 0 and button as AC.
+- 0 => 0 => 0 => 0 => 0 => 0 will always show button as AC.
+
+Sign tests:
+- Pressing +/- when screen has 0. Then 6 will display -6.
+- Pressing +/- when screen only has 0 will display -0.
+- Pressing +/- when screen only -0 will display 0.
+- Pressing +/- when screen has 235 will display -235.
+- Pressing +/- when screen has 0.4 will show -0.4.
+- Pressing 4 when screen only has -0 will display -4.

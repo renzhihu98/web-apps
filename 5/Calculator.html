@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Created by Kordell Stewart 3/15/19, html layout of calculator -->
+<!-- edited by Celia Tang: 3/18/19, added links to javascript files, added values for num buttons -->
+<!-- edited by Leslie Zhou: 3/21/19, added values to exp, changed exp to be an operator -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+        <link rel="stylesheet" type="text/css" href="css%20layout/Layout.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- can put stuff here like instructions-->
+            The calculator of choice for the Dining Philosopher!
+            <div class="calculator">
+                <div class="display" id="viewer">0</div>
+                <div class="keys">
+                    <button class="memory" id="MC">MC</button>
+                    <button class="memory" id="MR">MR</button>
+                    <button class="memory" id="MS">MS</button>
+                    <button class="memory" id="M+">M+</button>
+                    <button class="operator exp" id="exp" value="exp">^</button>
+                    <button class="filler" id="sign">+/-</button>
+                    <button class="filler" id="sqrt">√</button>
+                    <button class="filler" id="backspace">⌫</button>
+                    <button class="trig" id="sin">sin</button>
+                    <button class="trig" id="cos">cos</button>
+                    <button class="trig" id="tan">tan</button>
+                    <button class="trig pi" id="PI">π</button>
+                    <button class="operator" id="add" value="+">+</button>
+                    <button class="operator" id="subtract" value="-">-</button>
+                    <button class="operator" id="multiply" value="*">x</button>
+                    <button class="operator" id="divide" value="/">÷</button>
+                    <button class="number" id="num7" value="7">7</button>
+                    <button class="number" id="num8" value="8">8</button>
+                    <button class="number" id="num9" value="9">9</button>
+                    <button class="number" id="num4" value="4">4</button>
+                    <button class="number" id="num5" value="5">5</button>
+                    <button class="number" id="num6" value="6">6</button>
+                    <button class="number" id="num1" value="1">1</button>
+                    <button class="number" id="num2" value="2">2</button>
+                    <button class="number" id="num3" value="3">3</button>
+                    <button class="number" id="num0" value="0">0</button>
+                    <button class="decimal number" id="decimal" value=".">.</button>
+                    <button class="AC" id="AC">AC</button>
+                    <button class="operator equal" id="equals" value="=">=</button>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="test/src/display.js"></script>
+        <script type="text/javascript" src="test/src/BasicFunc.js"></script>
+        <script type="text/javascript" src="test/src/MemoryAC.js"></script>
+        <script type="text/javascript" src="test/src/trig.js"></script>
+        <script type="text/javascript" src="test/src/fillerFunction.js"></script>
+    </body>
+</html>

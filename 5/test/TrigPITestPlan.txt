@@ -1,0 +1,26 @@
+//Created 3/20/19 by Kordell Stewart
+//editied 3/21/19 by Kordell Stewart - added pi test plans
+//This file describes the method that was used to test the PI, sin, cos, and tan functions
+
+
+Function linked to buttons properly and following tests conducted:
+
+PI tests:
+ - Pressing PI on clear screen displays 3.14159 (we aren't going deeper with precision)
+ - Pressing PI on an occupied screen correctly clears it and displays 3.14159
+ - Pressing PI multiple times has no result, as it clears each time
+
+Sin tests:
+ - Pressing sin on a clear screen with '0' correctly displays '0'
+ - pressing sin on screen of '2' correctly displays '0.909297426' (11 places of precision)
+ - pressing sin on our pi gives us '0.000002653' which is good enough for our precision (rounds to '0')
+
+Cos tests:
+ - Pressing cos on a clear screen with '0' correctly displays '1'
+ - Pressing cos on a screen of '2' correctly displays '-0.41614683' (11 places of precision)
+ - pressing cos on our pi gives us '-0.99999999' which rounds to '-1'
+
+Tan tests:
+  - Pressing tan on a clear screen with '0' correctly displays '0'
+  - Pressing tan on a screen of '2' correctly displays '-2.18503986' (11 places of precision)
+  - pressing tan on our pi gives us '-0.00000265' which rounds to '0'
