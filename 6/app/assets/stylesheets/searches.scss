@@ -1,0 +1,14 @@
+// Place all the styles related to the searches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Edited by Celia Tang 4-17-19: added styling to search page, white links for table head and padding for search bar
+
+.thead-link {
+  a:link, a:visited, a:hover, s:active {
+    color: white;
+  }
+}
+
+.search-form {
+  padding: 10px;
+}

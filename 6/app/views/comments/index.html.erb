@@ -1,0 +1,21 @@
+<%#Created 4/14/2019 by Leslie Zhou %>
+<%#This is the ifle to show all comments %>
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<table>
+
+  <tbody>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.body %></td>
+      <td><%= link_to 'Edit', edit_book_comment_path(comment.book_id, comment) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment', new_book_comment_path %>

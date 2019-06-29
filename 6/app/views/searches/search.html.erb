@@ -1,0 +1,53 @@
+<!-- Created by Celia Tang 4/13/19: html for search page-->
+<!-- Edited by Celia Tang 4/13/19: added showing of results -->
+<!-- Edited by Celia Tang 4/14/19: changed to fit Ransack gem. added population for table of results, create search_form with the ransack object
+                                   created in controller and uses it to populate dynamic search form, made all accesses to ransack object q global
+                                    so that header has access to it-->
+<!-- edited by Celia Tang 4-15-19: ransack object changed back to instance var -->
+<!-- edited by Celia Tang 4-16-19 added image thumbnail to search results, put headers into thead -->
+<h1>Search Page</h1>
+
+
+<%= search_form_for @q, url: search_page_path, html: { method: :post } do |f| %>
+  <%= f.condition_fields do |c| %>
+    <div class="search-form">
+      <%= c.attribute_fields do |a| %>
+          <%= a.attribute_select  %>
+      <% end %>
+      <%= c.predicate_select %>
+      <%= c.value_fields do |v| %>
+        <%= v.text_field :value %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="search-form">
+    <%= f.submit "Search", :class => "button btn btn-primary" %>
+  </div>
+<% end %>
+<br/>
+<table class="table table-striped table-hover">
+  <thead class="thead-link">
+  <tr>
+    <th scope="col"> </th>
+    <th scope="col"><%= sort_link @q, :title, "Title" %></th>
+    <th scope="col"><%= sort_link @q, :author, "Author" %></th>
+    <th scope="col"><%= sort_link @q, :classification, "Classification" %></th>
+    <th scope="col"><%= sort_link @q, :genre, "Genre" %></th>
+    <th scope="col"><%= sort_link @q, :edition, "Edition" %></th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @results.each do |book| %>
+    <tr>
+      <td><%= image_tag book.image_url(:thumb) %></td>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><%= book.classification %></td>
+      <td><%= book.genre %></td>
+      <td><%= book.edition %></td>
+      <td><%= link_to 'Show', book %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

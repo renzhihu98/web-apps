@@ -1,0 +1,30 @@
+<!-- Created by Celia Tang on 4-16-19, html page for all education books -->
+<!-- Edited by Renzhi Hu on 4-17-19, reformat -->
+
+<h1>Education Books</h1>
+<table class="table table-striped table-hover">
+  <thead>
+  <tr class="text-center">
+    <th>Image</th>
+    <th><%= sort_link @q, :title, "Title" %></th>
+    <th><%= sort_link @q, :author, "Author" %></th>
+    <th><%= sort_link @q, :classification, "Classification" %></th>
+    <th><%= sort_link @q, :edition, "Edition" %></th>
+    <th><%= sort_link @q, :description, "Description" %></th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @results.each do |book| %>
+    <tr>
+      <td><%= image_tag book.image_url(:thumb) %></td>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><%= book.classification %></td>
+      <td><%= book.edition %></td>
+      <td><%= book.description %></td>
+      <td><%= link_to 'View', book %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

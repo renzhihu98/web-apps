@@ -1,0 +1,21 @@
+<%#Created 4/14/2019 by Leslie Zhou %>
+<%#This is the file to show all reviews %>
+<p id="notice"><%= notice %></p>
+
+<h1>Reviews</h1>
+
+<table>
+
+  <tbody>
+  <% @reviews.each do |review| %>
+    <tr>
+      <td><%= review.body %></td>
+      <td><%= link_to 'Edit', edit_book_review_path(review.book_id, review) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Review', new_book_review_path %>

@@ -1,0 +1,18 @@
+<!-- Created by Renzhi Hu 4/14-->
+
+<% provide(:title, "My Profile |") %>
+
+<div class="row py-3">
+  <%= render 'sidebar' %>
+  <div class="col" id="main">
+    <h1>My Profile</h1>
+    <div>
+      <p>
+          <%= link_to 'Edit My Account', edit_user_registration_path %>
+      </p>
+      <p>Username: <%= @user.username %></p>
+      <p>Email: <%= @user.email %></p>
+      <p>Books in my library: <%= @user.books.size %></p>
+    </div>
+  </div>
+</div>

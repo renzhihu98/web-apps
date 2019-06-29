@@ -1,0 +1,27 @@
+Created by Kordell Stewart on 4/13/19
+This file outlines the testing of image_uploader.rb using the gem 'carrierwave'
+
+Basic Functionality: This should allow us to display two things:
+    - Custom Uploaded Full Resolution Book Covers
+    - Process uploaded images to 150x150 thumbnails for displaying in lists/index/results
+
+Tests:
+Base Case: No Cover Image Uploaded
+If a user doesn't provide a cover when they create a book, the default "no cover" image displays correctly
+On book index, the thumbnail for the default cover displays correctly w/ correct size
+
+Case 1: Upload incorrect image type
+Correctly rejects the upload of any image that isn't file type [jpg jpeg gif png]
+
+Case 2: Upload correct image type
+Correctly accepts the upload of any image that is file type [jpg jpeg gif png]
+
+Case 3: Display of Correctly Uploaded Image
+Once an acceptable image is uploaded, it correctly displays both the full resolution cover image on the book info page
+and the 150x150 thumbnail on book index
+
+Case 4: Image Updating
+Updating a book entry with an existing image works correctly as per Case 2 above
+
+Case 5: Image Storing
+After upload, images are stored and correctly loaded in database

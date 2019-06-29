@@ -1,0 +1,480 @@
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "booklists"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "booklists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "genre" varchar, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "books"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "books" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "author" varchar, "classification" varchar, "genre" varchar, "edition" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "image" varchar, "user_id" integer)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX "index_books_on_user_id" ON "books" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "commentable_id" integer, "commentable_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "book_id" integer, "comment_id" integer)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_book_id" ON "comments" ("book_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_book_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_book_id' AND type='index'
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_comment_id" ON "comments" ("comment_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_comment_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_comment_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_book_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_book_id' AND type='index'
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "reviews"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "commentable_id" integer, "commentable_type" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "book_id" integer, "rating" integer)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_book_id" ON "reviews" ("book_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_book_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_book_id' AND type='index'
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "username" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190418010237)[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190414144242),
+(20190414194547),
+(20190413212525),
+(20190414204403),
+(20190416034924),
+(20190413222539),
+(20190415044501),
+(20190413211138),
+(20190414050703);
+
+[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-04-18 01:58:49.495702"], ["updated_at", "2019-04-18 01:58:49.495702"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_reviews
+--------------------------------------------
+Started GET "/home" for 127.0.0.1 at 2019-04-17 21:58:49 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (7014.6ms)
+  Rendered layouts/_header.html.erb (21.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 7099ms (Views: 7052.8ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_get_comments
+---------------------------------------------
+Started GET "/home" for 127.0.0.1 at 2019-04-17 21:58:56 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_library
+--------------------------------------------
+Started GET "/home" for 127.0.0.1 at 2019-04-17 21:58:56 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_profile
+--------------------------------------------
+Started GET "/home" for 127.0.0.1 at 2019-04-17 21:58:56 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_get_comments
+---------------------------------------------
+Started GET "/user/comment" for 127.0.0.1 at 2019-04-17 22:00:14 -0400
+Processing by UsersController#comment as HTML
+Completed 401 Unauthorized in 66ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_library
+--------------------------------------------
+Started GET "/user/library" for 127.0.0.1 at 2019-04-17 22:00:14 -0400
+Processing by UsersController#library as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (2.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_profile
+--------------------------------------------
+Started GET "/user/profile" for 127.0.0.1 at 2019-04-17 22:00:14 -0400
+Processing by UsersController#profile as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_reviews
+--------------------------------------------
+Started GET "/user/review" for 127.0.0.1 at 2019-04-17 22:00:14 -0400
+Processing by UsersController#review as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_profile
+--------------------------------------------
+Started GET "/user/profile" for 127.0.0.1 at 2019-04-17 22:00:38 -0400
+Processing by UsersController#profile as HTML
+Completed 401 Unauthorized in 49ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_get_comments
+---------------------------------------------
+Started GET "/user/comment" for 127.0.0.1 at 2019-04-17 22:00:39 -0400
+Processing by UsersController#comment as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_library
+--------------------------------------------
+Started GET "/user/library" for 127.0.0.1 at 2019-04-17 22:00:39 -0400
+Processing by UsersController#library as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_reviews
+--------------------------------------------
+Started GET "/user/review" for 127.0.0.1 at 2019-04-17 22:00:39 -0400
+Processing by UsersController#review as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_reviews
+--------------------------------------------
+Started GET "/user/review" for 127.0.0.1 at 2019-04-17 22:01:13 -0400
+Processing by UsersController#review as HTML
+Completed 401 Unauthorized in 58ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_profile
+--------------------------------------------
+Started GET "/user/profile" for 127.0.0.1 at 2019-04-17 22:01:13 -0400
+Processing by UsersController#profile as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_get_comments
+---------------------------------------------
+Started GET "/user/comment" for 127.0.0.1 at 2019-04-17 22:01:13 -0400
+Processing by UsersController#comment as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_library
+--------------------------------------------
+Started GET "/user/library" for 127.0.0.1 at 2019-04-17 22:01:13 -0400
+Processing by UsersController#library as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_profile
+--------------------------------------------
+Started GET "/user/profile" for 127.0.0.1 at 2019-04-17 22:01:42 -0400
+Processing by UsersController#profile as HTML
+Completed 401 Unauthorized in 45ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_get_comments
+---------------------------------------------
+Started GET "/user/comment" for 127.0.0.1 at 2019-04-17 22:01:42 -0400
+Processing by UsersController#comment as HTML
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_library
+--------------------------------------------
+Started GET "/user/library" for 127.0.0.1 at 2019-04-17 22:01:42 -0400
+Processing by UsersController#library as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_reviews
+--------------------------------------------
+Started GET "/user/review" for 127.0.0.1 at 2019-04-17 22:01:42 -0400
+Processing by UsersController#review as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_reviews
+--------------------------------------------
+Started GET "/user/review" for 127.0.0.1 at 2019-04-17 22:02:41 -0400
+Processing by UsersController#review as HTML
+Completed 401 Unauthorized in 48ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_library
+--------------------------------------------
+Started GET "/user/library" for 127.0.0.1 at 2019-04-17 22:02:42 -0400
+Processing by UsersController#library as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_profile
+--------------------------------------------
+Started GET "/user/profile" for 127.0.0.1 at 2019-04-17 22:02:42 -0400
+Processing by UsersController#profile as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_get_comments
+---------------------------------------------
+Started GET "/user/comment" for 127.0.0.1 at 2019-04-17 22:02:42 -0400
+Processing by UsersController#comment as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_library
+--------------------------------------------
+Started GET "/user/library" for 127.0.0.1 at 2019-04-17 22:03:01 -0400
+Processing by UsersController#library as HTML
+Completed 401 Unauthorized in 55ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_get_comments
+---------------------------------------------
+Started GET "/user/comment" for 127.0.0.1 at 2019-04-17 22:03:02 -0400
+Processing by UsersController#comment as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_profile
+--------------------------------------------
+Started GET "/user/profile" for 127.0.0.1 at 2019-04-17 22:03:02 -0400
+Processing by UsersController#profile as HTML
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_reviews
+--------------------------------------------
+Started GET "/user/review" for 127.0.0.1 at 2019-04-17 22:03:02 -0400
+Processing by UsersController#review as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+ReviewsControllerTest: test_should_get_edit
+-------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+ReviewsControllerTest: test_should_get_new
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+ReviewsControllerTest: test_should_get_show
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+ReviewsControllerTest: test_should_get_destroy
+----------------------------------------------
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+SearchesControllerTest: test_should_get_search
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_help
+-----------------------------------------------
+Started GET "/help" for 127.0.0.1 at 2019-04-17 22:03:49 -0400
+Processing by StaticPagesController#help as HTML
+  Rendering static_pages/help.html.erb within layouts/application
+  Rendered static_pages/help.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (25.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 782ms (Views: 741.4ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Started GET "/home" for 127.0.0.1 at 2019-04-17 22:03:50 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 24ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+StaticPagesControllerTest: test_should_get_about
+------------------------------------------------
+Started GET "/about" for 127.0.0.1 at 2019-04-17 22:03:50 -0400
+Processing by StaticPagesController#about as HTML
+  Rendering static_pages/about.html.erb within layouts/application
+  Rendered static_pages/about.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 29ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_contact
+--------------------------------------------------
+Started GET "/contact" for 127.0.0.1 at 2019-04-17 22:03:50 -0400
+Processing by StaticPagesController#contact as HTML
+  Rendering static_pages/contact.html.erb within layouts/application
+  Rendered static_pages/contact.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 22ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_library
+--------------------------------------------
+Started GET "/user/library" for 127.0.0.1 at 2019-04-17 22:04:09 -0400
+Processing by UsersController#library as HTML
+Completed 401 Unauthorized in 94ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_reviews
+--------------------------------------------
+Started GET "/user/review" for 127.0.0.1 at 2019-04-17 22:04:10 -0400
+Processing by UsersController#review as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------
+UsersControllerTest: test_should_get_profile
+--------------------------------------------
+Started GET "/user/profile" for 127.0.0.1 at 2019-04-17 22:04:10 -0400
+Processing by UsersController#profile as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+UsersControllerTest: test_should_get_comments
+---------------------------------------------
+Started GET "/user/comment" for 127.0.0.1 at 2019-04-17 22:04:10 -0400
+Processing by UsersController#comment as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m

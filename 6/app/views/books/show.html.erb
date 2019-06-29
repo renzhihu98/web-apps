@@ -1,0 +1,52 @@
+<%#Created 4/10/19 by Kordell Stewart %>
+<%#Edited 4/14/19 by Kordell Stewart - tweaked display%>
+<%#This file contains the html to display a singular book item %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container-fluid">
+
+  <div class="card text-center">
+    <div class="card-header">
+      <h1><%= @book.title %></h1>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title"><%= image_tag(@book.image_url.to_s) %></h1>
+      <h5 class="card-title">Author: <%= @book.author %></h5>
+      <h5 class="card-title">Classification: <%= @book.classification %></h5>
+      <h5 class="card-title">Genre: <%= @book.genre %></h5>
+      <h5 class="card-title">Edition: <%= @book.edition %></h5>
+      <h5 class="card-title">Average Rating:
+        <% sum =0.0%>
+        <%@book.reviews.each do |review| %>
+          <% sum += review.rating %>
+        <% end %>
+        <%= (sum/@book.reviews.length).round(1) %>/5
+      </h5>
+      <p class="card-text text-left">  <%= @book.description %></p>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="container-fluid">
+  <h1>Reviews:</h1>
+  <%= render @book.reviews %>
+  <button type="button" class="btn btn-primary">
+    <%= link_to "Add Review", new_book_review_path(@book) %>
+  </button>
+  <br/>
+</div>
+
+<div class="container-fluid">
+  <h1>Comments:</h1>
+  <%= render @book.comments %>
+  <button type="button" class="btn btn-primary">
+    <%= link_to "Add Comment", new_book_comment_path(@book) %>
+  </button>
+</div>
+<div class="container-fluid">
+  <br/>
+  <%= link_to 'Edit', edit_book_path(@book) %> |
+  <%= link_to 'Back', books_path %> |
+  <%= link_to 'My Library', user_library_path %>
+</div>

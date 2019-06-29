@@ -1,0 +1,101 @@
+/*Created by Kordell Stewart on 4/14/19
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* Custom imports */
+$theme-colors: (
+        "primary":    #E37222,
+        "light":      #66B9BF,
+        "dark":       #07889B
+);
+
+/*End custom imports*/
+
+@import "bootstrap";
+
+html {
+}
+body {
+  background-color: #34A1A7;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("book_bakcground.jpeg");
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1 {
+  color: #E37222;
+}
+
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: white;
+}
+
+/* selected link */
+a:active {
+  color: white;
+}
+
+th {
+  background-color: #E37222;
+  color: white;
+}
+
+.thead {
+  color: white;
+}
+
+.carousel-caption {
+  color: #07889B;
+}
+
+#carouselHome {
+  margin: 5px;
+}
+
+footer {
+  color: white;
+  position: relative;
+  bottom: 0;
+  height: 80px;
+}
+
+footer a:link {
+  color: white;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* visited link */
+footer a:visited {
+  color: white;
+}
+
+
+
+

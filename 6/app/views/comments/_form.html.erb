@@ -1,0 +1,6 @@
+<%#Created 4/14/2019 by Leslie Zhou %>
+<%#this is the file for the review %>
+<%= form_for [@book, @book.comments.find(comment.id)] do |f| %>
+  <%= f.text_area :body, placeholder: "Add a comment" %><br/>
+  <%= f.submit "Add Comment" %>
+<% end %>

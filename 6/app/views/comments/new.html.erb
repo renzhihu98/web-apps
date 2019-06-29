@@ -1,0 +1,10 @@
+<%#Created 4/14/2019 by Leslie Zhou %>
+<%#This is the file to create the comment %>
+<h1>New Comment</h1>
+
+<%= form_for [@book, @book.comments.build] do |f| %>
+  <%= f.text_area :body, placeholder: "Add a comment" %><br/>
+  <%= f.submit "Add Comment" %>
+<% end %>
+
+<%= link_to 'Back', book_path(@book.id) %>

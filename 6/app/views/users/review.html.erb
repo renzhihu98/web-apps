@@ -1,0 +1,35 @@
+<!-- Created by Renzhi Hu 4/14-->
+<!-- Edited by Leslie Zhou 4/15: added everything that is needed for the review-->
+<!-- Edited by Celia Tang 4-17-19: added thead class to th tags for styling -->
+<!-- Edited by Leslie Zhou 4-17-19: added review and rating and eidt for styling -->
+<% provide(:title, "My Reviews |") %>
+
+<div class="row py-3">
+  <%= render 'sidebar' %>
+  <div class="col" id="main">
+    <h1>My Reviews</h1>
+
+    <table class="table table-striped table-hover">
+      <thead class="thead">
+      <tr class="text-center">
+        <th scope="col">Score</th>
+        <th scope="col">Your Review</th>
+        <th colspan="1">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @reviews.each do |review| %>
+        <tr>
+          <td><h5><%= review.rating %></h5></td>
+          <td><%= review.body %></td>
+          <td><%= link_to 'Edit', edit_book_review_path(review.book_id, review) %></td>
+
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+  </div>
+</div>

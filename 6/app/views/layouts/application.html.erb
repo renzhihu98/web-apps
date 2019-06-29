@@ -1,0 +1,31 @@
+<!-- Edited by Renzhi Hu 4/13-->
+<!-- Edited by Celia Tang 4-16-19: added web fonts link -->
+<!-- Edited by Renzhi Hu 4/17: deleted alerts-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= yield(:title) %> StudyBreak</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Kaushan+Script" rel="stylesheet">
+  </head>
+
+  <body>
+    <%= render '/layouts/header' %>
+    <div class="bg-image">
+      <div class="row py-3">
+        <div class="container bg-light rounded">
+          <h1 class="notice notice-dismissible text-center"><%= notice %></h1>
+          <h1 class="alert alert-dismissible text-center"><%= alert %></h1>
+          <%= yield %>
+          <br/>
+        </div>
+      </div>
+    </div>
+    <%= render '/layouts/footer' %>
+  </body>
+
+</html>

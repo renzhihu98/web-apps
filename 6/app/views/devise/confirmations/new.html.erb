@@ -1,0 +1,20 @@
+<!-- This is the content of the confirmation page of the site -->
+<!-- Created 4-12-19 by Anna Yu -->
+<!-- Edited 4-13-19 by Anna Yu: added provide for title-->
+<% provide(:title, "Confirmation |") %>
+<h2>Resend confirmation instructions</h2>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Resend confirmation instructions" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

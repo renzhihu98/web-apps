@@ -1,0 +1,36 @@
+<!-- This is the content of the home page of the site -->
+<!-- Created 4-9-19 by Anna Yu -->
+<!-- Edited 4-12-19 by Anna Yu: added provide-->
+<!-- Edited 4-16-19 by Celia Tang: added buttons for entertainment and education pages-->
+<!-- Edited 4-17-19 by Kordell Stewart: redesign-->
+<% provide(:title, "Home |") %>
+
+<div id="carouselHome" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselHome" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselHome" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("study.jpg", class: "d-block w-100")%>
+      <div class="carousel-caption d-none d-md-block">
+        <%= button_to "STUDY", education_page_path, :class =>"button btn-primary btn-lg" %>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag("fun.jpg", class: "d-block w-100")%>
+      <div class="carousel-caption d-none d-md-block">
+        <%= button_to "BREAK", entertainment_page_path, :class =>"button btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselHome" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+

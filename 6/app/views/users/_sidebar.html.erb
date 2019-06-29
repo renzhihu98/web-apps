@@ -1,0 +1,12 @@
+<!-- Created by Renzhi Hu 4/14-->
+<!-- Edited by Renzhi Hu 4/14: made the sidebar fixed size-->
+<!-- Edited by Leslie Zhou 4/15: modified the user and comment path-->
+<div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="list-group list-group-flush">
+    <%= link_to 'Profile',  user_profile_path, class:"list-group-item list-group-item-action bg-light"%>
+    <%= link_to 'Library',  user_library_path, class:"list-group-item list-group-item-action bg-light"%>
+    <%= link_to 'Reviews',  user_review_path, class:"list-group-item list-group-item-action bg-light"%>
+    <%= link_to 'Comments',  user_comment_path, class:"list-group-item list-group-item-action bg-light"%>
+    <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete', class:"list-group-item list-group-item-action bg-light" %>
+  </div>
+</div>

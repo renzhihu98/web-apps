@@ -1,0 +1,7 @@
+<%#Created 4/14/2019 by Leslie Zhou %>
+<%#This is the file for the review %>
+<%= form_for [@book, @book.reviews.find(review.id)] do |f| %>
+
+  <%= f.text_area :body, placeholder: "Add a review" %><br/>
+  <%= f.submit "Add Review" %>
+<% end %>

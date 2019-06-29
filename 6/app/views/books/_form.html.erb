@@ -1,0 +1,58 @@
+<%#Created 4/3/19 by Kordell Stewart %>
+<%#This file creates the partial for entering new book information %>
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :book_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :book_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :classification %>
+    <em>(Education or Entertainment)</em>
+    <%= form.text_field :classification, id: :book_classification %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <em>(Optional)</em>
+    <%= form.text_field :genre, id: :book_genre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :edition %>
+    <em>(Optional)</em>
+    <%= form.text_field :edition, id: :book_edition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <em>(Optional)</em>
+    <%= form.text_area :description, id: :book_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
