@@ -1,0 +1,12 @@
+#Input test plan
+######Created 2/4/2019 by Leslie Zhou 
+For the input methods, instead of creating test cases we used white box testing 
+###Test for initialInput
+We first run the program and see if the message was printed out correctly. 
+And then we entered a number for the player number. For the player number, we tried different numbers like numbers that fall in the range (1-4), and numbers out of range like -1,0 and 8.
+After that we entered the player names and see if the message with the names was printed correctly.
+All the tests were passed
+###Test for askForCard
+We first run the program see if the message was printed correctly. And after that we tried different combinations of card choices like normal choices (choices that fall in the range), and specail cases (r, q, and d for special prompt) and card choices that didn't exist at all.
+After that the choice set were printed and we checked manually if they were corect every time.
+All the tests were passed
