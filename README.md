@@ -1,1 +1,1 @@
-projects for web application class
+Previous projects for web application class at OSU
