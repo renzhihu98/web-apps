@@ -1,0 +1,23 @@
+<!-- Created 2/22/19 by Kordell Stewart: Made basic layout and got all partials set up
+     Edited 2/28/19 by Anna Yu: added lang='en' after validator.
+-->
+<!-- This is the basic layout for every page on the website with navbar, footer, and header -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <!-- <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <!-- Use the title from a page's frontmatter if it has one -->
+    <title><%= current_page.data.title || "Jim W. Davis"%></title>
+    <%= stylesheet_link_tag "site" %>
+    <%= javascript_include_tag "site" %>
+  </head>
+  <body>
+    <%= partial "header" %>
+    <%= partial "navbar" %>
+    <%= yield %>
+    <%= partial "footer" %>
+  </body>
+</html>

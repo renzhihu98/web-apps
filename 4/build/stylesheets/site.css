@@ -1,0 +1,205 @@
+/* Created on 2/21/19 by Kordell Stewart */
+/* This is the basic styling sheet we will use for all pages*/
+/* Edited by Kordell Stewart on 2/25/19 and /2/26/19 - Broad styling for site, partials, and homepage added
+
+/*
+OSU Colors:
+- Scarlet: #bb0000
+- Grey:  #666666
+- White:  #ffffff
+- Black: #000000
+ */
+/* Created on 2/21/19 by Kordell Stewart */
+/* Unvisited link styling*/
+a:link {
+  color: grey; }
+
+/* mouse over link */
+a:hover {
+  color: #bb0000; }
+
+/* Created on 2/21/19 by Kordell Stewart */
+body {
+  background-color: #eaeaea;
+  font-family: 'Helvetica','Arial', sans-serif;
+  color: #333;
+  text-align: left;
+  margin: 0; }
+
+/* Created on 2/21/19 by Kordell Stewart */
+header {
+  background-color: #333333;
+  font-family: 'Helvetica','Arial', sans-serif;
+  width: 100%;
+  color: white;
+  padding: 0.5%; }
+
+/* Created on 2/21/19 by Kordell Stewart */
+/*header linking*/
+header a:link {
+  color: white;
+  text-decoration: none; }
+
+header a:visited {
+  color: white;
+  text-decoration: none; }
+
+header a:hover {
+  color: #bb0000;
+  text-decoration: none; }
+
+/* Created on 2/21/19 by Kordell Stewart */
+/* Footer for all pages*/
+footer {
+  font-family: 'Helvetica','Arial', sans-serif;
+  padding-left: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 100%;
+  background-color: #333333;
+  color: white;
+  text-align: left; }
+
+/* Created on 2/21/19 by Kordell Stewart */
+/* This is the full sticky side navigation bar */
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  border-top: 15px #bb0000;
+  border-style: solid; }
+
+/* Created on 2/21/19 by Kordell Stewart */
+.navbar li a {
+  display: block;
+  color: #000;
+  padding: 14px 16px;
+  text-decoration: none; }
+
+.navbar li {
+  float: left;
+  text-align: center; }
+
+/* Created on 2/21/19 by Kordell Stewart */
+/* Change the link color on hover */
+.navbar li a:hover {
+  background-color: #bb0000;
+  color: white; }
+
+/* Created 2/26/2019 by Renzhi Hu */
+/* Controls the noteworthy page */
+.noteworthy-lists, .people {
+  line-height: 140%;
+  padding: 1%;
+  border: 2px solid #333333;
+  margin: 2%; }
+  .noteworthy-lists a:hover, .people a:hover {
+    background-color: #bb0000;
+    color: white; }
+  .noteworthy-lists h3, .people h3 {
+    padding-left: 20px;
+    color: #bb0000; }
+
+/*Created 2/26/2019 by Leslie Zhou*/
+.mediaTitle {
+  color: #333333;
+  font-family: Helvetica; }
+
+/*Created 2/26/2019 by Leslie Zhou*/
+.mediaContent {
+  font-family: Helvetica;
+  color: #333333; }
+  .mediaContent x:hover {
+    background-color: lightgray;
+    color: black; }
+
+/*Created 2/26/2019 by Leslie Zhou*/
+.mediaLink :hover {
+  background-color: lightgray;
+  color: #bb0000; }
+
+/* Created on 2/26/19 by Celia Tang */
+/* Formats the content on teaching page, with solid border with 240 px wide and an off green background color*/
+.teachingContent {
+  border-style: solid;
+  border-width: 2px;
+  margin: 20px;
+  padding: 10px;
+  width: 240px;
+  background-color: #dddec6; }
+
+/* Created on 2/26/19 by Celia Tang */
+/* Formats the table on the teaching page: lines around table, colors every other line */
+.teachingTable {
+  border-collapse: collapse;
+  margin: 20px; }
+  .teachingTable td {
+    border: 3px solid #666666;
+    padding: 5px; }
+  .teachingTable tr:nth-child(even) {
+    background-color: #9fadc4; }
+
+/* Created on 2/26/19 by Celia Tang */
+/* Formats the header on teaching page, added horizontal line*/
+.teachingTitle {
+  padding: 20px;
+  margin: 20px;
+  border-bottom: 3px solid #666666; }
+
+/* Created and edited on 2/26/19 by Anna Yu*/
+/* Changed table to have hoverable rows, red headers and horizontal dividers*/
+.academic th, .academic td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid black; }
+
+.academic table {
+  width: 100%;
+  border-collapse: collapse; }
+
+.academic th {
+  background-color: #bb0000;
+  color: #f1f1f1; }
+
+.academic tr:hover {
+  background-color: #9fadc4; }
+
+/*created by Kordell Stewart on 2/26/19 */
+/* Controls basic content styling everywhere */
+.content {
+  margin-left: 10px;
+  margin-bottom: 10px; }
+
+/*created by Kordell Stewart on 2/26/19 */
+/*Controls the intro styling on the main page*/
+.intro {
+  float: right;
+  width: 80%;
+  padding: 10px; }
+
+.intro .notbold {
+  font-weight: normal;
+  font-size: 75%; }
+
+/*Controls the beautiful image of Jim on the main page*/
+.clearfix img {
+  float: left;
+  width: 20%;
+  margin: 5px;
+  border: solid 5px #bb0000; }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table; }
+
+/* Created 2/27/2019 by Renzhi Hu */
+/* Format the title of each pages */
+.content h1, h3 {
+  padding-left: 2%; }
+
+.content .intro h1 {
+  padding-left: 0%; }
