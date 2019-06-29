@@ -1,0 +1,77 @@
+<!-- Created on 2/12/19 by Kordell Stewart-->
+<!-- This ERB file is the template that will be used in the sent emails-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OSU Jobs</title>
+</head>
+<!-- Internal styling since we aren't sending a style sheet too -->
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+  }
+  /*Basic styling*/
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h1 {
+    font-weight: bold;
+  }
+  /* Style top bar */
+  .topnav {
+    overflow: hidden;
+    background-color: #bb0000;
+    font-weight: Bold;
+  }
+  /* Style topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #F2EAED;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #666666;
+    color: #bb0000;
+  }
+  /* Style content */
+  .content {
+    background-color: #ffffff;
+    padding: 10px;
+    font-size: 6pt;
+  }
+  /* Style footer */
+  .footer {
+    background-color: #bb0000;
+    padding: 5px;
+    font-style: italic;
+    overflow: hidden;
+  }
+  .footer p{
+    color: #F2EAED;
+  }
+</style>
+<body>
+<div class="topnav">
+  <a href="https://www.jobsatosu.com/">Official OSU Jobs Site</a>
+</div>
+<div class="content">
+  <h1>Welcome to OSU Jobs!</h1>
+    <p>Here are yours jobs and listings for today!</p>
+ <%@results.each do |current|%>
+    <h2><a href=<%=current.link %>><%=current.title%></a></h2>
+    <p><%=current.descriptBody %></p>
+ <% end %>
+</div>
+<div class="footer">
+  <p>A Dining Philosophers Project, 2019</p>
+</div>
+</body>
+</html>
