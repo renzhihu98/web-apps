@@ -1,21 +1,5 @@
-# Project 3
+
 ### Web Scraping
-
-### Roles
-* Overall Project Manager: Leslie Zhou 
-* Coding Manager: Kordell Stewart
-* Testing Manager: Renzhi Hu
-* Documentation: Anna Yu
-
-### Contributions
-Please list who did what for each part of the project.
-Also list if people worked together (pair programmed) on a particular section.
-
-Anna Yu - cron job scheduling and input testing<br>
-Leslie Zhou & Renzhi Hu - scraping of jobs website<br>
-Kordell Stewart - embedded ruby and html/css styling<br>
-Leslie Zhou - integration of various parts<br>
-Celia Tang - sending email from created dummy email
 
 #### Scheduling by Anna Yu (2/12/19 - 2/14/19):
 To create a cron job in your own Ubuntu virtual machine. (p.s. I used nano editor so my steps are based in nano)
