@@ -1,30 +1,6 @@
-# Project 2
 ### Game of Set
 
-### Roles
-* Overall Project Manager: Celia Tang
-* Coding Manager: Renzhi Hu
-* Testing Manager: Leslie Zhou
-* Documentation: Kordell Stewart
-
-### Contributions
-Please list who did what for each part of the project.
-Also list if people worked together (pair programmed) on a particular section.
-
-Celia Tang: Deal class and test, edited variables in Card class, added delete functionality to set game
-
-Renzhi Hu: Output methods that are in output file and output tests, and scoreboard, and printing out cards in playing field
-
-Leslie Zhou: Input methods that were in input class but later moved to set game and tests
-
-Kordell Stewart: Checker and player_record classes and tests. Set_game testing plan and file.
-
-Anna Yu: Card class and tests, outlined and impletmented game flow (update) for set_game
-
-Celia Tang, Anna Yu, and Leslie Zhou worked together (pair programmed) on the ask_for_card method in set_game.rb
-
-Anna Yu and Renzhi Hu worked together (pair programmed) on the update method in set_game.rb
-### Instructions for Grader
+### Instructions
 Before running our game, please install the Ruby gem colorize. One way to do this is to enter the following into terminal:
 
 <code>gem install colorize</code>
